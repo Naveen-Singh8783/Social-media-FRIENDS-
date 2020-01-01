@@ -1,0 +1,28 @@
+<header>
+  <div class="container d-flex justify-content-between align-items-center">
+    <span class="navbar-brand font-weight-bolder" style="color: white;margin-top: 4px">Friend</span>
+
+    <nav>
+      <ul>
+        <li><a href="#" (click)="onSelect('login')" style="color: white">Login</a></li>
+        <li><a href="#" (click)="onSelect('signup')" style="color: white">Sign Up</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="col-12 col-md-12 col-lg-12 section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6  heading-primary d-none d-sm-none d-lg-block">
+          <h1 class="heading-primary--main font-weight-bolder">Friends</h1>
+          <h4 style="color: black" class="heading-primary--sub">Friends hepls you connect and share moments with people...</h4>
+        </div>
+        <div class="col-12 col-sm-10 col-lg-6">
+          <app-login *ngIf="loginmethodselected==='login'"></app-login>d
+          <app-sign-in *ngIf="loginmethodselected!=='login'"></app-sign-in>
+        </div>
+      </div>
+    </div>
+</div>
+

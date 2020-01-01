@@ -1,0 +1,20 @@
+
+
+<div class="section-login">
+  <h3>Account Login</h3>
+  <form>
+    <div class="form_group">
+      <input type="email" class="form_input" placeholder="EMAIL ADDRESS" id="email" (input)="Email_id($event)" required>
+      <label for="email" class="form_label">EMAIL ADDRESS</label>
+    </div>
+
+    <div class="form_group">
+      <input type="password" class="form_input" placeholder="PASSWORD" id="password" (input)="PASSWD($event)" required>
+      <label for="password" class="form_label">PASSWORD</label>
+    </div>
+    <button type="submit" class="btn btn-primary pl-3 pr-3" (click)="verify(email_id,pwd)">Login</button>
+
+  </form>
+</div>
+
+

@@ -1,0 +1,546 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="section-story">
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 d-lg-block d-sm-none d-none">
+      <ul class="list-group ">
+        <li class="list-group-item d-flex justify-content-between align-items-center list-gp">
+          group
+          <span class="badge badge-primary badge-pill">14</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center list-gp">
+          event
+          <span class="badge badge-primary badge-pill">2</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center list-gp">
+          Friends
+          <span class="badge badge-primary badge-pill">1</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center list-gp">
+          Massages
+          <span class="badge badge-primary badge-pill">1</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center list-gp">
+          games
+          <span class="badge badge-primary badge-pill">1</span>
+        </li>
+      </ul>
+    </div>
+    <div class="col-lg-7">
+      <div class="card status">
+        <div class="card-body">
+          <h5 class="card-title">
+            <img src="../../assets/img/woman-1446557_1920.jpg" alt="Naveen" class="img-thumbnail img-fluid profile-img">
+            <h5 class="profile-name">Naveen Singh</h5>
+            <h5 class="status">Create Post</h5>
+          </h5>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" (input)="post_upload($event)"></textarea>
+          <a class="btn btn-light" (click)="post_upload1()">Post</a>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 d-lg-block d-none ">
+      <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center list-fd">
+          <h4>Friends Suggestion</h4>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center list-fd">
+          <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+          <h5 class="profile-name1">Rex roy</h5>
+          <button type="button" class="btn btn-outline-info" (click)="frnd_request()" *ngIf="friend_request===false; else cancel_request">ADD</button>
+          <ng-template #cancel_request>
+            <button type="button" class="btn btn-outline-info" (click)="frnd_request()">Cancel</button>
+          </ng-template>
+        </li>
+
+
+        <li class="list-group-item d-flex justify-content-between align-items-center list-fd">
+          <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+          <h5 class="profile-name1">Ram Roy</h5>
+          <button type="button" class="btn btn-outline-info" (click)="frnd_request1()" *ngIf="friend_request1===false; else cancel_request1">ADD</button>
+          <ng-template #cancel_request1>
+            <button type="button" class="btn btn-outline-info" (click)="frnd_request1()">Cancel</button>
+          </ng-template>
+        </li>
+
+
+        <li class="list-group-item d-flex justify-content-between align-items-center list-fd">
+          <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+          <h5 class="profile-name1">pri jat</h5>
+          <button type="button" class="btn btn-outline-info" (click)="frnd_request2()" *ngIf="friend_request2===false; else cancel_request2">ADD</button>
+          <ng-template #cancel_request2>
+            <button type="button" class="btn btn-outline-info" (click)="frnd_request2()">Cancel</button>
+          </ng-template>
+        </li>
+
+
+        <li class="list-group-item d-flex justify-content-between align-items-center list-fd">
+          <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+          <h5 class="profile-name1">Ria Roy</h5>
+          <button type="button" class="btn btn-outline-info" (click)="frnd_request3()" *ngIf="friend_request3===false; else cancel_request3">ADD</button>
+          <ng-template #cancel_request3>
+            <button type="button" class="btn btn-outline-info" (click)="frnd_request3()">Cancel</button>
+          </ng-template>
+        </li>
+
+
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row" *ngIf="pt_upload===true">
+    <div class="col-lg-2 d-lg-block d-none">
+      &nbsp;
+    </div>
+    <div class="col-12 col-lg-7">
+      <div class="card text-dark bg mb-3" style="max-width: 100%;">
+        <div class="card-header">
+          <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+          <h5 class="profile-name">Naveen Singh</h5>
+        </div>
+        <div class="card-body">
+
+          <h5 class="card-text">{{post}}</h5>
+
+          <div class="row">
+            <div class="col-lg-1 col-sm-1 col-1">
+              <i class="icon-basic-heart" (click)="onlike()"> </i>
+              <p>{{count}}</p>
+            </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-message-txt" (click)="oncomment()"></i>
+            </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-paperplane"></i>
+            </div>
+            <div class="col-lg-12">
+              <div class="row">
+                <input type="text" class="form-control" *ngIf="comment===true; else fls" (input)="TheComment($event)">
+                <button class="btn btn-primary" *ngIf="comment===true" (click)="oncomment2()">comment</button>
+              </div>
+              <ng-template #fls>
+                <div class="col-lg-10">
+                  <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+                  <h6 class="profile-name">Naveen singh</h6>
+                  <p style="margin-left: 2.5rem">{{user_commnet}}</p>
+                </div>
+                <div class="col-lg-2">
+                  <i class="icon-basic-heart1" (click)="onlike1()"> </i>
+                  <p style="margin-left: .2rem">{{count1}}</p>
+                </div>
+              </ng-template>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <div class="row">
+    <div class="col-lg-2 d-lg-block d-none">
+      &nbsp;
+    </div>
+    <div class="col-12 col-lg-7">
+      <div class="card text-dark bg mb-3" style="max-width: 100%;">
+        <div class="card-header">
+          <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+          <h5 class="profile-name">Sachine Tendulkar</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">jump high</h5>
+          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+          <img src="../../assets/img/edu-lauton-TyQ-0lPp6e4-unsplash.jpg" class="card-img-top" alt="...">
+          <div class="row">
+           <div class="col-lg-1 col-sm-1 col-1">
+             <i class="icon-basic-heart" (click)="onlike()"> </i>
+            <p>{{count}}</p>
+           </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-message-txt" (click)="oncomment()"></i>
+            </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-paperplane"></i>
+            </div>
+            <div class="col-lg-12">
+              <div class="row">
+                <input type="text" class="form-control" *ngIf="comment===true; else fls" (input)="TheComment($event)">
+                <button class="btn btn-primary" *ngIf="comment===true" (click)="oncomment2()">comment</button>
+              </div>
+              <ng-template #fls>
+                <div class="col-lg-10">
+                  <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+                  <h6 class="profile-name">Naveen singh</h6>
+                  <p style="margin-left: 2.5rem">{{user_commnet}}</p>
+                </div>
+                <div class="col-lg-2">
+                  <i class="icon-basic-heart1" (click)="onlike1()"> </i>
+                  <p style="margin-left: .2rem">{{count1}}</p>
+                </div>
+              </ng-template>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-lg-2 d-lg-block d-none">
+      &nbsp;
+    </div>
+    <div class="col-12 col-lg-7">
+      <div class="card text-dark bg mb-3" style="max-width: 100%;">
+        <div class="card-header">
+          <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+          <h5 class="profile-name">pushpendra jat</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">jump high</h5>
+          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+          <img src="../../assets/img/edu-lauton-TyQ-0lPp6e4-unsplash.jpg" class="card-img-top" alt="...">
+          <div class="row">
+            <div class="col-lg-1 col-sm-1 col-1">
+              <i class="icon-basic-heart" (click)="onlike()"> </i>
+              <p>{{count}}</p>
+            </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-message-txt" (click)="oncomment()"></i>
+            </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-paperplane"></i>
+            </div>
+            <div class="col-lg-12">
+              <div class="row">
+                <input type="text" class="form-control" *ngIf="comment===true; else fls" (input)="TheComment($event)">
+                <button class="btn btn-primary" *ngIf="comment===true" (click)="oncomment2()">comment</button>
+              </div>
+              <ng-template #fls>
+                <div class="col-lg-10">
+                  <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+                  <h6 class="profile-name">Naveen singh</h6>
+                  <p style="margin-left: 2.5rem">{{user_commnet}}</p>
+                </div>
+                <div class="col-lg-2">
+                  <i class="icon-basic-heart1" (click)="onlike1()"> </i>
+                  <p style="margin-left: .2rem">{{count1}}</p>
+                </div>
+              </ng-template>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-lg-2 d-lg-block d-none">
+      &nbsp;
+    </div>
+    <div class="col-12 col-lg-7">
+      <div class="card text-dark bg mb-3" style="max-width: 100%;">
+        <div class="card-header">
+          <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+          <h5 class="profile-name">tushar Roy</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">jump high</h5>
+          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+          <img src="../../assets/img/edu-lauton-TyQ-0lPp6e4-unsplash.jpg" class="card-img-top" alt="...">
+          <div class="row">
+            <div class="col-lg-1 col-sm-1 col-1">
+              <i class="icon-basic-heart" (click)="onlike()"> </i>
+              <p>{{count}}</p>
+            </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-message-txt" (click)="oncomment()"></i>
+            </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-paperplane"></i>
+            </div>
+            <div class="col-lg-12">
+              <div class="row">
+                <input type="text" class="form-control" *ngIf="comment===true; else fls" (input)="TheComment($event)">
+                <button class="btn btn-primary" *ngIf="comment===true" (click)="oncomment2()">comment</button>
+              </div>
+              <ng-template #fls>
+                <div class="col-lg-10">
+                  <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+                  <h6 class="profile-name">Naveen singh</h6>
+                  <p style="margin-left: 2.5rem">{{user_commnet}}</p>
+                </div>
+                <div class="col-lg-2">
+                  <i class="icon-basic-heart1" (click)="onlike1()"> </i>
+                  <p style="margin-left: .2rem">{{count1}}</p>
+                </div>
+              </ng-template>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+  <div class="row">
+    <div class="col-lg-2 d-lg-block d-none">
+      &nbsp;
+    </div>
+    <div class="col-12 col-lg-7">
+      <div class="card text-dark bg mb-3" style="max-width: 100%;">
+        <div class="card-header">
+          <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+          <h5 class="profile-name">tushar Roy</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">jump high</h5>
+          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+          <img src="../../assets/img/edu-lauton-TyQ-0lPp6e4-unsplash.jpg" class="card-img-top" alt="...">
+          <div class="row">
+            <div class="col-lg-1 col-sm-1 col-1">
+              <i class="icon-basic-heart" (click)="onlike()"> </i>
+              <p>{{count}}</p>
+            </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-message-txt" (click)="oncomment()"></i>
+            </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-paperplane"></i>
+            </div>
+            <div class="col-lg-12">
+              <div class="row">
+                <input type="text" class="form-control" *ngIf="comment===true; else fls" (input)="TheComment($event)">
+                <button class="btn btn-primary" *ngIf="comment===true" (click)="oncomment2()">comment</button>
+              </div>
+              <ng-template #fls>
+                <div class="col-lg-10">
+                  <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+                  <h6 class="profile-name">Naveen singh</h6>
+                  <p style="margin-left: 2.5rem">{{user_commnet}}</p>
+                </div>
+                <div class="col-lg-2">
+                  <i class="icon-basic-heart1" (click)="onlike1()"> </i>
+                  <p style="margin-left: .2rem">{{count1}}</p>
+                </div>
+              </ng-template>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-lg-2 d-lg-block d-none">
+      &nbsp;
+    </div>
+    <div class="col-12 col-lg-7">
+      <div class="card text-dark bg mb-3" style="max-width: 100%;">
+        <div class="card-header">
+          <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+          <h5 class="profile-name">Ria Roy</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">jump high</h5>
+          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+          <img src="../../assets/img/edu-lauton-TyQ-0lPp6e4-unsplash.jpg" class="card-img-top" alt="...">
+          <div class="row">
+            <div class="col-lg-1 col-sm-1 col-1">
+              <i class="icon-basic-heart" (click)="onlike()"> </i>
+              <p>{{count}}</p>
+            </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-message-txt" (click)="oncomment()"></i>
+            </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-paperplane"></i>
+            </div>
+            <div class="col-lg-12">
+              <div class="row">
+                <input type="text" class="form-control" *ngIf="comment===true; else fls" (input)="TheComment($event)">
+                <button class="btn btn-primary" *ngIf="comment===true" (click)="oncomment2()">comment</button>
+              </div>
+              <ng-template #fls>
+                <div class="col-lg-10">
+                  <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+                  <h6 class="profile-name">Naveen singh</h6>
+                  <p style="margin-left: 2.5rem">{{user_commnet}}</p>
+                </div>
+                <div class="col-lg-2">
+                  <i class="icon-basic-heart1" (click)="onlike1()"> </i>
+                  <p style="margin-left: .2rem">{{count1}}</p>
+                </div>
+              </ng-template>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-lg-2 d-lg-block d-none">
+      &nbsp;
+    </div>
+    <div class="col-12 col-lg-7">
+      <div class="card text-dark bg mb-3" style="max-width: 100%;">
+        <div class="card-header">
+          <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+          <h5 class="profile-name">Ria Roy</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">jump high</h5>
+          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+          <img src="../../assets/img/edu-lauton-TyQ-0lPp6e4-unsplash.jpg" class="card-img-top" alt="...">
+          <div class="row">
+            <div class="col-lg-1 col-sm-1 col-1">
+              <i class="icon-basic-heart" (click)="onlike()"> </i>
+              <p>{{count}}</p>
+            </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-message-txt" (click)="oncomment()"></i>
+            </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-paperplane"></i>
+            </div>
+            <div class="col-lg-12">
+              <div class="row">
+                <input type="text" class="form-control" *ngIf="comment===true; else fls" (input)="TheComment($event)">
+                <button class="btn btn-primary" *ngIf="comment===true" (click)="oncomment2()">comment</button>
+              </div>
+              <ng-template #fls>
+                <div class="col-lg-10">
+                  <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+                  <h6 class="profile-name">Naveen singh</h6>
+                  <p style="margin-left: 2.5rem">{{user_commnet}}</p>
+                </div>
+                <div class="col-lg-2">
+                  <i class="icon-basic-heart1" (click)="onlike1()"> </i>
+                  <p style="margin-left: .2rem">{{count1}}</p>
+                </div>
+              </ng-template>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-lg-2 d-lg-block d-none">
+      &nbsp;
+    </div>
+    <div class="col-12 col-lg-7">
+      <div class="card text-dark bg mb-3" style="max-width: 100%;">
+        <div class="card-header">
+          <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+          <h5 class="profile-name">Ria Roy</h5>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">jump high</h5>
+          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+          <img src="../../assets/img/edu-lauton-TyQ-0lPp6e4-unsplash.jpg" class="card-img-top" alt="...">
+          <div class="row">
+            <div class="col-lg-1 col-sm-1 col-1">
+              <i class="icon-basic-heart" (click)="onlike()"> </i>
+              <p>{{count}}</p>
+            </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-message-txt" (click)="oncomment()"></i>
+            </div>
+            <div class="col-lg-1 col-1 col-sm-1">
+              <i class="icon-basic-paperplane"></i>
+            </div>
+            <div class="col-lg-12">
+              <div class="row">
+                <input type="text" class="form-control" *ngIf="comment===true; else fls" (input)="TheComment($event)">
+                <button class="btn btn-primary" *ngIf="comment===true" (click)="oncomment2()">comment</button>
+              </div>
+              <ng-template #fls>
+                <div class="col-lg-10">
+                  <img src="../../assets/img/woman-1446557_1920.jpg" alt="Rai" class="img-thumbnail img-fluid profile-img">
+                  <h6 class="profile-name">Naveen singh</h6>
+                  <p style="margin-left: 2.5rem">{{user_commnet}}</p>
+                </div>
+                <div class="col-lg-2">
+                  <i class="icon-basic-heart1" (click)="onlike1()"> </i>
+                  <p style="margin-left: .2rem">{{count1}}</p>
+                </div>
+              </ng-template>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+</div>
+
+
+
+

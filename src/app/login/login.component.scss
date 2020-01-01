@@ -1,0 +1,83 @@
+.section-login{
+  height: 24rem;
+  background-color: white;
+  position: relative;
+  top: 6rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+
+}
+
+.form{
+  position: absolute;
+
+     &_group:not(:last-child){
+       margin-bottom: 1rem;
+
+     }
+
+  &_input{
+    font-size: 1rem;
+    font-family: inherit;
+    padding: 1rem 1rem;
+    border-radius: 2px;
+    border: none;
+    background-color: #c7cad1;
+    border-bottom: 3px solid transparent;
+    width: 100%;
+    display: block;
+
+    &:focus{
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.55);
+      border-bottom: 3px solid green;
+      background-color: aliceblue;
+
+      &:focus:invalid{
+        border-bottom: 3px solid red;
+      }
+    }
+
+
+
+    &::-webkit-input-placeholder{
+      color: black;
+    }
+
+  }
+
+
+
+
+  &_label{
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: .2rem;
+    margin-left: 2rem;
+    display: block;
+    transition: all .3s;
+
+  }
+
+  &_input:placeholder-shown + &_label{
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
+  }
+
+}
+
+h3{
+  padding: 2rem 2rem;
+  text-align: center;
+}
+
+.btn{
+  margin-top: -1rem;
+  left: 40%;
+  position: absolute;
+}
+
+
+
+

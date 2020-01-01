@@ -1,0 +1,119 @@
+.container{
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+$header-color: black;
+header{
+  background-color: #143673;
+  height: 8vh;
+
+}
+
+header::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.logo{
+  float: left;
+  padding-top: 5px;
+  height: 3rem;
+  border-radius: 2rem;
+
+}
+
+nav{
+  float: right;
+
+  & ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  & li{
+    display: inline-block;
+    margin-left: 3rem;
+    padding-top: .9rem;
+    position: relative;
+  }
+
+  & a{
+    color: black;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  & a:hover{
+    color: white;
+  }
+
+  & a:before{
+    content: "";
+    display: block;
+    height: 5px;
+    position: absolute;
+    background-color: white;
+    top: 0;
+    width: 0;
+    transition: all ease-in-out .2s;
+  }
+
+  & a:hover::before{
+      width: 100%;
+  }
+}
+
+.section{
+  height: 92vh;
+  width: 100vw;
+  background-image: url("../../assets/img/handshake-3382503_1920.jpg");
+  background-size: 100% 100%;
+  bottom: 0;
+  left: 0;
+}
+
+.heading-primary{
+  color: aliceblue;
+  top: 9rem;
+
+
+  &--main{
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    transition: all ease-in-out .2s;
+    font-size: 4rem;
+
+    &:hover{
+      transform: scale(1.05);
+      text-shadow: .5rem 1rem 2rem rgba(black,.3);
+    }
+
+  }
+
+  &--sub{
+    margin-bottom: 1rem;
+    transition: all ease-in-out .2s;
+    color: white !important;
+
+    &:hover{
+      transform: skewY(2deg) skewX(15deg) scale(1.1);
+      text-shadow: .5rem 1rem 2rem rgba(black,.3);
+    }
+  }
+}
+.col-lg-6{
+  height: 3rem;
+}
+
+
+
+
+
+
+
+
